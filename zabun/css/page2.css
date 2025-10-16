@@ -7,19 +7,242 @@
 
 **************************************/
 
-header.is-sub {
-  position: fixed;
-  top: 0;
+* {
+	box-sizing: border-box;
 }
-.upage{
+
+header.is-sub {
+	position: fixed;
+	top: 0;
+}
+
+.upage {
 	margin-top: 100px;
 	padding-bottom: 8em;
 }
-@media (min-width:1200px){
-	.upage{
+
+@media (min-width:1200px) {
+	.upage {
 		margin-top: 150px;
 	}
 }
+
+p {
+	font-size: 0.8em;
+}
+
+@media (min-width:768px) {
+	p {
+		font-size: 0.9em;
+	}
+}
+
+@media (min-width:1200px) {
+	p {
+		font-size: 1em;
+	}
+}
+
+.width-set {
+	width: calc(100% - (1em * 2));
+	margin: 0 auto;
+}
+
+@media (min-width:768px) {
+	.width-set {
+		width: calc(100% - (2em * 2));
+		max-width: 720px;
+	}
+}
+
+@media (min-width:1200px) {
+	.width-set {
+		width: 80%;
+		max-width: 1400px;
+	}
+}
+
+.width-set-large {
+	width: calc(100% - (1em * 2));
+	margin: 0 auto;
+}
+
+@media (min-width:768px) {
+	.width-set-large {
+		width: calc(100% - (1em * 2));
+		max-width: 720px;
+	}
+}
+
+@media (min-width:1200px) {
+	.width-set-large {
+		width: 90%;
+		max-width: 1600px;
+	}
+}
+
+
+.big-head {
+	font-size: 1.9em;
+	line-height: 2;
+	text-align: center;
+}
+
+@media (min-width:768px) {
+	.big-head {
+		font-size: 2em;
+		line-height: 1.7;
+		text-align: left;
+	}
+}
+
+@media (min-width:1200px) {
+	.big-head {
+		font-size: 4em;
+		line-height: 2;
+	}
+}
+
+
+.small-head {
+	font-size: 0.9em;
+	line-height: 1.8;
+	font-weight: bold;
+}
+
+@media (min-width:768px) {
+	.small-head {
+		font-size: 1em;
+	}
+}
+
+@media (min-width:1200px) {
+	.small-head {
+		font-size: 1.1em;
+	}
+}
+
+/* #region major-heading */
+.major-heading {
+	.major-heading__logo {
+		width: 95%;
+		max-width: 400px;
+		height: auto;
+		margin: 1em auto 3em;
+	}
+}
+
+/* #endregion  major-heading */
+
+/* #region zabun-read */
+:where(*:has(> .zabun-read)) {
+	padding-top: 3em;
+}
+
+.zabun-read {
+	position: relative;
+	isolation: isolate;
+	background-color: var(--skyblue);
+	border-top: 2px solid var(--skyblue);
+	padding: 2em 0;
+
+	h3,
+	p {
+		color: white;
+	}
+
+	h3 {
+		font-size: 1.6em;
+	}
+
+	p {
+		margin: 1em;
+		font-weight: bold;
+	}
+}
+
+.zabun-read::before {
+	--edge-height: 80px;
+
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(-1 * var(--edge-height, 80px));
+	height: var(--edge-height, 80px);
+	background: url("../img/zabun/nami.png") center top / cover no-repeat;
+	pointer-events: none;
+	z-index: -1;
+}
+
+.zabun-read__swiper .swiper {
+	overflow: hidden;
+}
+
+.zabun-read__swiper .swiper-slide {
+	overflow: hidden;
+	/* border-radius: 8px;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, .18); */
+}
+/* 
+.zabun-read__swiper .swiper-slide img {
+	margin: 0;
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 53 / 36;
+	object-fit: cover;
+	box-shadow: none;
+} */
+
+
+.zabun-read__propose {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	gap: 2em;
+	border: 1px solid var(--skyblue);
+	border-radius: 16px;
+	text-align: center;
+	padding: 1em;
+
+	span {
+		color: var(--skyblue);
+	}
+
+	p {
+		color: black;
+		font-weight: normal;
+	}
+}
+
+/* #endregion  zabun-read */
+
+
+/* #region bunner */
+.bunner {
+	margin: 3em 0;
+	text-align: center;
+
+	img {
+		width: 300px;
+		height: auto;
+	}
+}
+
+@media (min-width:768px) {
+	.bunner img {
+		width: 450px;
+	}
+}
+
+@media (min-width:1200px) {
+	.bunner img {
+		width: 660px;
+	}
+}
+
+/* #endregion bunner */
 
 /*-------------------------
 
@@ -27,32 +250,36 @@ header.is-sub {
 
 -------------------------*/
 
-.page_header{
+.page_header {
 	margin-bottom: 3em;
 }
-.page_header span{
+
+.page_header span {
 	font-size: 4em;
 	display: block;
 	line-height: 1;
 	color: var(--main-color);
 }
-.page_header h2{
+
+.page_header h2 {
 	font-weight: bold;
 	font-size: 1.2em;
 	margin-top: .5em;
 	letter-spacing: .5px;
 }
 
-@media (min-width:768px){
-	.page_header span{
+@media (min-width:768px) {
+	.page_header span {
 		font-size: 5em
 	}
 }
-@media (min-width:1400px){
-	.page_header span{
+
+@media (min-width:1400px) {
+	.page_header span {
 		font-size: 6em
 	}
-	.page_header h2{
+
+	.page_header h2 {
 		font-size: 1.4em
 	}
 }
@@ -98,9 +325,3 @@ header.is-sub {
    実績・成果　results
 
 ------------------------------------*/
-
-
-
-
-
-
