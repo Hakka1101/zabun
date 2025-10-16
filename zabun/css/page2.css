@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************
+
+   common
+
+**************************************/
+
+header.is-sub {
+  position: fixed;
+  top: 0;
+}
+.upage{
+	margin-top: 100px;
+	padding-bottom: 8em;
+}
+@media (min-width:1200px){
+	.upage{
+		margin-top: 150px;
+	}
+}
+
+/*-------------------------
+
+  header
+
+-------------------------*/
+
+.page_header{
+	margin-bottom: 3em;
+}
+.page_header span{
+	font-size: 4em;
+	display: block;
+	line-height: 1;
+	color: var(--main-color);
+}
+.page_header h2{
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-top: .5em;
+	letter-spacing: .5px;
+}
+
+@media (min-width:768px){
+	.page_header span{
+		font-size: 5em
+	}
+}
+@media (min-width:1400px){
+	.page_header span{
+		font-size: 6em
+	}
+	.page_header h2{
+		font-size: 1.4em
+	}
+}
+
+
+
+
+
+/*------------------------------------
+
+   ざぶん賞　zabun_award
+
+------------------------------------*/
+
+
+
+/*------------------------------------
+
+   ざぶんSDGs大賞　zabun_sdgs
+
+------------------------------------*/
+
+
+
+/*------------------------------------
+
+   壁画プロジェクト　mural
+
+------------------------------------*/
+
+
+
+/*------------------------------------
+
+   環境教育事業　environmental
+
+------------------------------------*/
+
+
+
+/*------------------------------------
+
+   実績・成果　results
+
+------------------------------------*/
+
+
+
+
+
+
