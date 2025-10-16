@@ -43,22 +43,26 @@ p {
 	}
 }
 
+.small {
+	font-size: 0.9em;
+}
+
 .width-set {
-	width: calc(100% - (1em * 2));
-	margin: 0 auto;
+	width: calc(100% - (1em * 2)); 
+	margin: 0 auto !important;
 }
 
 @media (min-width:768px) {
 	.width-set {
 		width: calc(100% - (2em * 2));
-		max-width: 720px;
+		max-width: 720px !important;
 	}
 }
 
 @media (min-width:1200px) {
 	.width-set {
 		width: 80%;
-		max-width: 1400px;
+		max-width: 1400px !important;
 	}
 }
 
@@ -85,6 +89,7 @@ p {
 .big-head {
 	font-size: 1.9em;
 	line-height: 2;
+	font-weight: bold;
 	text-align: center;
 }
 
@@ -103,22 +108,41 @@ p {
 	}
 }
 
-
 .small-head {
-	font-size: 0.9em;
+	font-size: 1.1em;
 	line-height: 1.8;
 	font-weight: bold;
 }
 
 @media (min-width:768px) {
 	.small-head {
-		font-size: 1em;
+		font-size: 1.2em;
 	}
 }
 
 @media (min-width:1200px) {
 	.small-head {
-		font-size: 1.1em;
+		font-size: 1.3em;
+	}
+}
+
+.grid-column-4 {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1em;
+}
+
+@media (min-width:768px) {
+	.grid-column-4 {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2em;
+	}
+}
+
+@media (min-width:1200px) {
+	.grid-column-4 {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2em;
 	}
 }
 
@@ -140,13 +164,13 @@ p {
 }
 
 .zabun-read {
-	position: relative;
-	isolation: isolate;
-	background-color: var(--skyblue);
-	border-top: 2px solid var(--skyblue);
-	padding: 2em 0;
+  position: relative;
+  isolation: isolate;
+  background-color: var(--skyblue);
+  border-top: 2px solid var(--skyblue);
+  padding: 2em 0;
 
-	h3,
+  h3,
 	p {
 		color: white;
 	}
@@ -160,19 +184,25 @@ p {
 		font-weight: bold;
 	}
 }
+.zabun-read > * { position: relative; z-index: 1; } /* 前面に出す */
 
-.zabun-read::before {
-	--edge-height: 80px;
+.zabun-read::before{
+  content: "";
+  position: absolute;
+  inset-inline: 0;           /* left:0; right:0; と同じ */
+  inset-block-start: 0;      /* top:0; と同じ */
+  width: 100%;
+  height: auto;              /* ← 高さは比率から自動算出 */
+  aspect-ratio: 1920 / 374;  /* ← ここがキモ！ */
 
-	content: "";
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: calc(-1 * var(--edge-height, 80px));
-	height: var(--edge-height, 80px);
-	background: url("../img/zabun/nami.png") center top / cover no-repeat;
-	pointer-events: none;
-	z-index: -1;
+  /* 画像は帯全体にフィットさせる（同じ比率なので歪みません） */
+  background: url("../img/zabun/nami.png") center top / 100% 100% no-repeat;
+
+  /* 擬似要素の“自分の高さ分”だけ上に押し上げる＝親の上辺にぴったり重なる */
+  transform: translateY(-100%);
+
+  pointer-events: none;
+  z-index: 0;                /* 背面（子要素は z-index:1 にしてある） */
 }
 
 .zabun-read__swiper .swiper {
@@ -181,20 +211,7 @@ p {
 
 .zabun-read__swiper .swiper-slide {
 	overflow: hidden;
-	/* border-radius: 8px;
-	box-shadow: 0 8px 16px rgba(0, 0, 0, .18); */
 }
-/* 
-.zabun-read__swiper .swiper-slide img {
-	margin: 0;
-	display: block;
-	width: 100%;
-	height: auto;
-	aspect-ratio: 53 / 36;
-	object-fit: cover;
-	box-shadow: none;
-} */
-
 
 .zabun-read__propose {
 	display: flex;
@@ -202,9 +219,10 @@ p {
 	background-color: white;
 	gap: 2em;
 	border: 1px solid var(--skyblue);
-	border-radius: 16px;
+	border-radius: 8px;
 	text-align: center;
 	padding: 1em;
+	margin: 2em auto 0;
 
 	span {
 		color: var(--skyblue);
@@ -216,8 +234,16 @@ p {
 	}
 }
 
-/* #endregion  zabun-read */
+@media (min-width:768px) {
+	.zabun-read__propose {
+		flex-direction: row;
+		justify-content: space-around;
+		max-width: 700px;
+		text-align: left;
+	}
+}
 
+/* #endregion  zabun-read */
 
 /* #region bunner */
 .bunner {
@@ -243,6 +269,185 @@ p {
 }
 
 /* #endregion bunner */
+
+/* #region award */
+.award {
+	.award__title {
+		position: relative;
+		width: 300px;
+		height: 150px;
+		text-align: center;
+		margin: 0 auto;
+
+		h3 {
+			font-size: 1.5em;
+			font-weight: bold;
+			line-height: 160px;
+		}
+	}
+
+	.award__title::before {
+		content: "Award";
+		position: absolute;
+		left: 0;
+		top: 10%;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		color: var(--skyblue);
+		font-size: 7em;
+		font-weight: bold;
+		opacity: .3;
+	}
+
+	.award__body {
+		position: relative;
+		width: 90%;
+		border: 1px solid var(--skyblue);
+		border-radius: 8px;
+		background-color: white;
+		margin: 0 auto;
+		padding: 1em;
+		transform: translateY(-40px);
+
+		.award__head {
+			background-color: var(--skyblue);
+			color: white;
+			border-radius: 4px;
+			padding: 4px 8px;
+			text-align: center;
+		}
+
+		.award__winner {
+			text-align: center;
+			line-height: 1.5;
+			font-weight: bold;
+			padding: 10px 20px;
+		}
+	}
+}
+
+/* #endregion award */
+
+/* #region judges-mes */
+.judges-mes {
+	text-align: center;
+	background-color: #E7F4FD;
+	margin: 3em 0;
+	padding: 2em 0;
+
+	h3 {
+		font-size: 1.5em;
+		font-weight: bold;
+		margin-bottom: 1em;
+	}
+}
+
+.judges-mes__inner {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2em;
+	text-align: center;
+
+	.judges-mes__button {
+		display: flex;
+		width: 250px;
+		height: 50px;
+		border-bottom: 1px solid gray;
+		justify-content: space-between;
+		margin: 0 auto;
+		color: black;
+
+		span {
+			font-size: 1.4em;
+			font-weight: bold;
+			text-align: left;
+		}
+	}
+}
+
+.judges-mes__arrow-icon {
+	position: relative;
+	background-color: var(--skyblue);
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	margin: 0 15px;
+}
+
+.judges-mes__arrow-icon::after {
+	position: absolute;
+	content: "▲";
+	color: #fff;
+	font-size: 18px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(90deg);
+	/* ← 合体！ */
+	transform-origin: 50% 50%;
+	/* ← 中心回転 */
+	line-height: 1;
+	/* 余白のクセを抑える */
+}
+
+@media (min-width:768px) {
+	.judges-mes__inner {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 3em;
+	}
+}
+
+/* #endregion judges-mes */
+
+/* #region design-heading */
+.design-heading {
+	position: relative;
+	isolation: isolate;
+	text-align: center;
+	margin: 3em 0;
+	overflow: hidden;
+
+	p {
+		margin: 2em auto;
+	}
+}
+
+.design-heading::before {
+	position: absolute;
+	content: attr(data-bg);
+	display: block;
+	font-size: 7em;
+	font-weight: bold;
+	color: var(--skyblue);
+	opacity: .3;
+	z-index: -1;
+	right: -10px;
+}
+
+@media (min-width:768px) {
+	.design-heading {
+		
+		p {
+			text-align: left;
+		}
+	}
+}
+
+/* #endregion design-heading */
+
+/* #region row-card */
+.row-card {
+	display: grid;
+	grid-template-rows: 2fr;
+	gap: 1em;
+	margin-bottom: 2em;
+
+	.row-card__body {
+		text-align: center;
+	}
+}
+
+/* #endregion row-card */
 
 /*-------------------------
 
@@ -294,8 +499,58 @@ p {
 
 ------------------------------------*/
 
+.zabun-award__winning {
+	width: 100%;
+	height: auto;
 
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
 
+.zabun-award__history {
+	text-align: center;
+	margin: 3em 0;
+
+	h4 {
+		font-size: 1.2em;
+		font-weight: bold;
+		margin: 0 auto 2em;
+	}
+}
+
+.zabun-award__history_inner {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2em;
+}
+
+.zabun-award__works_img {
+	margin: 0 auto 1em;
+	display: block;
+	width: 90%;
+	height: auto;
+	box-shadow: none;
+
+	img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		box-shadow: none;
+	}
+}
+
+@media (min-width:768px) {
+	.zabun-award__history_inner {
+		grid-template-columns: repeat(3, 1fr);
+		margin: 2em auto;
+	}
+
+	.zabun-award__works_img {
+		width: 80%;
+	}
+}
 /*------------------------------------
 
    ざぶんSDGs大賞　zabun_sdgs
