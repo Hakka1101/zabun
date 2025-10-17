@@ -68,20 +68,20 @@ p {
 
 .width-set-large {
 	width: calc(100% - (1em * 2));
-	margin: 0 auto;
+	margin: 0 auto !important;
 }
 
 @media (min-width:768px) {
 	.width-set-large {
 		width: calc(100% - (1em * 2));
-		max-width: 720px;
+		max-width: 720px !important;
 	}
 }
 
 @media (min-width:1200px) {
 	.width-set-large {
 		width: 90%;
-		max-width: 1600px;
+		max-width: 1600px !important;
 	}
 }
 
@@ -146,6 +146,10 @@ p {
 	}
 }
 
+:root {
+  --page-color: var(--main-color);
+}
+
 /* #region major-heading */
 .major-heading {
 	.major-heading__logo {
@@ -166,8 +170,8 @@ p {
 .zabun-read {
   position: relative;
   isolation: isolate;
-  background-color: var(--skyblue);
-  border-top: 2px solid var(--skyblue);
+  background-color: var(--page-color);
+  border-top: 2px solid var(--page-color);
   padding: 2em 0;
 
   h3,
@@ -205,27 +209,48 @@ p {
   z-index: 0;                /* 背面（子要素は z-index:1 にしてある） */
 }
 
+/* ラッパーを箱の中に収める */
+.zabun-read__swiper { overflow: hidden; }
+
+/* Swiper本体 */
 .zabun-read__swiper .swiper {
-	overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  contain: paint; /* 影やtransformのはみ出し保険 */
 }
 
+/* スライドは“縮められる”ように */
 .zabun-read__swiper .swiper-slide {
-	overflow: hidden;
+  min-width: 0;
+  overflow: hidden;
 }
+
+/* スライド直下の要素も縮めOK */
+.zabun-read__swiper .swiper-slide > * { min-width: 0; }
+
+/* 画像は必ず収まる */
+.zabun-read__swiper .swiper-slide img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 
 .zabun-read__propose {
 	display: flex;
 	flex-direction: column;
 	background-color: white;
 	gap: 2em;
-	border: 1px solid var(--skyblue);
+	border: 1px solid var(--page-color);
 	border-radius: 8px;
 	text-align: center;
 	padding: 1em;
 	margin: 2em auto 0;
 
 	span {
-		color: var(--skyblue);
+		color: var(--page-color);
 	}
 
 	p {
@@ -294,7 +319,7 @@ p {
 		width: 100%;
 		height: 100%;
 		z-index: -1;
-		color: var(--skyblue);
+		color: var(--page-color);
 		font-size: 7em;
 		font-weight: bold;
 		opacity: .3;
@@ -303,7 +328,7 @@ p {
 	.award__body {
 		position: relative;
 		width: 90%;
-		border: 1px solid var(--skyblue);
+		border: 1px solid var(--page-color);
 		border-radius: 8px;
 		background-color: white;
 		margin: 0 auto;
@@ -311,7 +336,7 @@ p {
 		transform: translateY(-40px);
 
 		.award__head {
-			background-color: var(--skyblue);
+			background-color: var(--page-color);
 			color: white;
 			border-radius: 4px;
 			padding: 4px 8px;
@@ -332,7 +357,7 @@ p {
 /* #region judges-mes */
 .judges-mes {
 	text-align: center;
-	background-color: #E7F4FD;
+	background: color-mix(in srgb, var(--page-color) 10%, white 90%);
 	margin: 3em 0;
 	padding: 2em 0;
 
@@ -368,7 +393,7 @@ p {
 
 .judges-mes__arrow-icon {
 	position: relative;
-	background-color: var(--skyblue);
+	background-color: var(--page-color);
 	width: 45px;
 	height: 45px;
 	border-radius: 50%;
@@ -418,7 +443,7 @@ p {
 	display: block;
 	font-size: 7em;
 	font-weight: bold;
-	color: var(--skyblue);
+	color: var(--page-color);
 	opacity: .3;
 	z-index: -1;
 	right: -10px;
@@ -499,6 +524,10 @@ p {
 
 ------------------------------------*/
 
+#page_zabun {
+	--page-color: var(--skyblue);
+}
+
 .zabun-award__winning {
 	width: 100%;
 	height: auto;
@@ -557,6 +586,9 @@ p {
 
 ------------------------------------*/
 
+#page_sdgs {
+	--page-color: var(--green1);
+}
 
 
 /*------------------------------------

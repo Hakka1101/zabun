@@ -1,175 +1,249 @@
 <!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-		<title>ざぶんSDGs大賞｜ざぶんプロジェクト</title>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<title>ざぶんSDGs大賞｜ざぶんプロジェクト</title>
 
-		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-		<link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap"
+		rel="stylesheet">
 
-		<!-- style -->
-		<link rel="stylesheet" href="css/fonts/style.css">
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/page2.css">
-	</head>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet">
 
-	<body>
-		
-		<header class="is-sub">
-			<div class="wrap flex">
-				<h1 class="header_logo">
-					<a href="/">
-						<img src="img/common/logo.svg" alt="ざぶん" class="logo-pc">
-						<img src="img/common/logo2.svg" alt="ざぶん" class="logo-sp">
-					</a>
-				</h1>
-				<nav class="global-nav">
-					<ul class="global-nav__list">
-						<li class="global-nav__item spnav"><a href="/">トップページ</a></li>
-						<li class="global-nav__item"><a href="about">団体概要</a></li>
-						<li class="global-nav__item dropdown">
-							<a tabindex="-1" class="acc_click">活動紹介</a>
-							<ul class="box">
-								<li><a href="zabun_award">ざぶん賞</a></li>
-								<li><a href="zabun_sdgs">ざぶんSDGs大賞</a></li>
-								<li><a href="mural">壁画プロジェクト</a></li>
-								<li><a href="environmental">環境教育事業</a></li>
-								<li><a href="medical">医療機関連携</a></li>
-							</ul>
-						</li>
-						<li class="global-nav__item"><a href="results">実績・成果</a></li>
-						<li class="global-nav__item"><a href="access">協賛・支援</a></li>
-						<li class="global-nav__item"><a href="news">ニュース</a></li>
-						<li class="global-nav__item nav_btn">
-							<a href="support-form" class="btn1">
-								<span>
-									<i class="icon-flag"></i>ご協賛申込み
-								</span>
-							</a>
-						</li>
-						<li id="contact_btn" class="global-nav__item nav_btn">
-							<a href="contact" class="btn1">
-								<span>
-									<i class="icon-mail_ic"></i>お問い合わせ
-								</span>
-							</a>
-						</li>
-					</ul>
-				 </nav>
-				 <div class="hamburger" id="js-hamburger">
-					 <span class="hamburger__line hamburger__line--1"></span>
-					 <span class="hamburger__line hamburger__line--2"></span>
-					 <span class="hamburger__line hamburger__line--3"></span>
-				 </div>
-				 <div class="black-bg" id="js-black-bg"></div>
+	<!-- style -->
+	<link rel="stylesheet" href="css/fonts/style.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/page2.css">
+</head>
+
+<body>
+
+	<header class="is-sub">
+		<div class="wrap flex">
+			<h1 class="header_logo">
+				<a href="/">
+					<img src="img/common/logo.svg" alt="ざぶん" class="logo-pc">
+					<img src="img/common/logo2.svg" alt="ざぶん" class="logo-sp">
+				</a>
+			</h1>
+			<nav class="global-nav">
+				<ul class="global-nav__list">
+					<li class="global-nav__item spnav"><a href="/">トップページ</a></li>
+					<li class="global-nav__item"><a href="about">団体概要</a></li>
+					<li class="global-nav__item dropdown">
+						<a tabindex="-1" class="acc_click">活動紹介</a>
+						<ul class="box">
+							<li><a href="zabun_award">ざぶん賞</a></li>
+							<li><a href="zabun_sdgs">ざぶんSDGs大賞</a></li>
+							<li><a href="mural">壁画プロジェクト</a></li>
+							<li><a href="environmental">環境教育事業</a></li>
+							<li><a href="medical">医療機関連携</a></li>
+						</ul>
+					</li>
+					<li class="global-nav__item"><a href="results">実績・成果</a></li>
+					<li class="global-nav__item"><a href="access">協賛・支援</a></li>
+					<li class="global-nav__item"><a href="news">ニュース</a></li>
+					<li class="global-nav__item nav_btn">
+						<a href="support-form" class="btn1">
+							<span>
+								<i class="icon-flag"></i>ご協賛申込み
+							</span>
+						</a>
+					</li>
+					<li id="contact_btn" class="global-nav__item nav_btn">
+						<a href="contact" class="btn1">
+							<span>
+								<i class="icon-mail_ic"></i>お問い合わせ
+							</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="hamburger" id="js-hamburger">
+				<span class="hamburger__line hamburger__line--1"></span>
+				<span class="hamburger__line hamburger__line--2"></span>
+				<span class="hamburger__line hamburger__line--3"></span>
 			</div>
-		</header>
-		
-		<main>
-			<article id="page_sdgs" class="upage">	
-				
+			<div class="black-bg" id="js-black-bg"></div>
+		</div>
+	</header>
 
-
-
-
-			</article>
-		</main>
-		
-		<ul id="ft_fix" class="flex">
-			<li class="fix_support">
-				<a href="support-form" >
-					<i class="icon-flag"></i>ご協賛申込み
-				</a>
-			</li>
-			<li class="fix_contact">
-				<a href="contact">
-					<i class="icon-mail_ic"></i>お問い合わせ
-				</a>
-			</li>
-		</ul>
-		
-		<footer>
-			<section class="wrap flex">
-				<div class="footer_info">
-					<h1>
-						<img src="img/common/logo.svg" alt="ざぶん" class="logo-sp">
-						<img src="img/common/footer_logo.svg" alt="ざぶん" class="logo-pc">
-					</h1>
-					<p class="ft_name">一般財団法人<br>ざぶん環境・文化プロジェクト</p>
-					<div class="ft_add">
-						<dl>
-							<dt>本部</dt>
-							<dd>〒924-0053 石川県白山市水澄町429番1<br>TEL 076-287-6782  / FAX 076-287-6783</dd>
-						</dl>
-						<dl>
-							<dt>事業部</dt>
-							<dd>〒321-3301 栃木県芳賀郡芳賀町給部17番2<br>TEL・FAX  028-677-5100</dd>
-						</dl>
+	<main>
+		<article id="page_sdgs" class="upage">
+			<div class="major-heading width-set">
+				<span class="big-head">地球丸ごと考えて<br>
+					行動しようプロジェクト<br>
+				</span>
+				<h2 class="major-heading__logo">
+					<img src="img/sdgs/sdgs_header.svg" alt="ざぶんSDGs大賞">
+				</h2>
+			</div>
+			<section class="sdgs-about">
+				<div class="zabun-read">
+					<div class="zabun-read__text width-set">
+						<h3>ざぶんSDGs大賞とは</h3>
+						<p>
+							SDGsの達成に向けて実践する小学生〜高校生の活動を表彰。<br>
+							地域に根ざした継続的な取り組みを評価し、<br>
+							企業と子どもたちが連携する仕組みも組み込まれています。<br>
+						</p>
 					</div>
-				</div>
-				<div class="footer_nav">
-					<a href="" class="circle circle_b"><span>トップページ</span></a>
-					<div class="flex">
-						<div class="ft_nav_section">
-							<a href="about" class="circle circle_g"><span>団体概要</span></a>
-							<ul class="sub_list">
-								<li><a href="about#philosophy">活動理念</a></li>
-								<li><a href="about#history">歴史・沿革</a></li>
-								<li><a href="about#organization">組織・役員</a></li>
-								<li><a href="about#bylaws">定款・規約</a></li>
-							</ul>
-						</div>
-						<div class="ft_nav_section">
-							<a href="#project" class="circle circle_o"><span>活動紹介</span></a>
-							<ul class="sub_list">
-								<li><a href="zabun_award">ざぶん賞</a></li>
-								<li><a href="zabun_sdgs">ざぶんSDGs大賞</a></li>
-								<li><a href="mural">壁画プロジェクト</a></li>
-								<li><a href="environmental">環境教育事業</a></li>
-								<li><a href="medical">医療機関連携</a></li>
-							</ul>
-						</div>
-						<div class="ft_nav_section">
-							<a href="results" class="circle circle_p"><span>実績・成果</span></a>
-							<ul class="sub_list">
-								<li><a href="results#honors">受賞歴・表彰</a></li>
-								<li><a href="results#report">活動レポート</a></li>
-								<li><a href="results#media">メディア掲載</a></li>
-								<li><a href="results#annual-report">年次活動報告</a></li>
-							</ul>
-						</div>
-						<div class="ft_nav_section">
-							<a href="support" class="circle circle_b"><span>協賛・支援</span></a>
-							<a href="news" class="circle circle_g"><span>ニュース</span></a>
-							<a href="privacy" class="circle circle_o"><span>プライバシーポリシー</span></a>
-							<a href="contact" class="circle circle_p"><span>お問い合わせ</span></a>
+					<div class="zabun-read__swiper">
+						<div class="swiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<img src="img/sdgs/slide1.jpg" alt="">
+								</div>
+								<div class="swiper-slide">
+									<img src="img/sdgs/slide2.jpg" alt="">
+								</div>
+								<div class="swiper-slide">
+									<img src="img/sdgs/slide3.jpg" alt="">
+								</div>
+								<div class="swiper-slide">
+									<img src="img/sdgs/slide4.jpg" alt="">
+								</div>
+							</div>
 						</div>
 					</div>
-				</div><!--- ft_nav --->
-				<div class="sp_footer">
-					<a href="privacy"><i class="icon-play3"></i>プライバシーポリシー</a>
-				</div>
-				<div id="copy">
-					<p>&copy; 2025 Zabun Project. All rights reserved.</p>
+					<div class="zabun-read__propose width-set">
+						<div>
+							<span class="small-head">目的</span>
+							<p>
+								地域に根ざした活動や、2030年に向けて継続的に課題解決を目指す姿勢を評価し、「誰一人取り残さない」社会の実現に貢献することを目指しています。<br>
+							</p>
+						</div>
+						<div>
+							<span class="small-head">意義</span>
+							<p>
+								社会課題を“自分ごと”として捉える力を育み、それを周囲に波及させていくきっかけとなる重要な機会です。学校教育や地域づくりとも連携しながら、持続可能な社会への土壌を耕します。<br>
+							</p>
+						</div>
+					</div>
 				</div>
 			</section>
-		</footer>
+<section class="bunner">
+				<a href=""><img src="img/banner/zabunsdgs.png" alt="ざぶんSDGs大賞"></a>
+			</section>
+<section class="sdgs-award">
+				<div class="award">
+					<div class="award__title">
+						<h3>ざぶんSDGs大賞 受賞団体</h3>
+					</div>
+					<div class="award__body">
+						<div class="award__head">
+							第4回 ざぶんSDGs大賞　環境大臣賞／国際SDGs賞 受賞
+						</div>
+						<div class="award__winner">
+							青森県立名久井農業高等学校　環境研究班<br>
+						</div>
+					</div>
+				</div>
+				<div class="zabun-award__winning">
+					<img src="img/zabun/winning-work1.png" alt="第22回 ざぶん賞　ざぶん大賞／栃木県知事賞 受賞作品">
+				</div>
 
 
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-		<script>
+
+		</article>
+	</main>
+
+	<ul id="ft_fix" class="flex">
+		<li class="fix_support">
+			<a href="support-form">
+				<i class="icon-flag"></i>ご協賛申込み
+			</a>
+		</li>
+		<li class="fix_contact">
+			<a href="contact">
+				<i class="icon-mail_ic"></i>お問い合わせ
+			</a>
+		</li>
+	</ul>
+
+	<footer>
+		<section class="wrap flex">
+			<div class="footer_info">
+				<h1>
+					<img src="img/common/logo.svg" alt="ざぶん" class="logo-sp">
+					<img src="img/common/footer_logo.svg" alt="ざぶん" class="logo-pc">
+				</h1>
+				<p class="ft_name">一般財団法人<br>ざぶん環境・文化プロジェクト</p>
+				<div class="ft_add">
+					<dl>
+						<dt>本部</dt>
+						<dd>〒924-0053 石川県白山市水澄町429番1<br>TEL 076-287-6782 / FAX 076-287-6783</dd>
+					</dl>
+					<dl>
+						<dt>事業部</dt>
+						<dd>〒321-3301 栃木県芳賀郡芳賀町給部17番2<br>TEL・FAX 028-677-5100</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="footer_nav">
+				<a href="" class="circle circle_b"><span>トップページ</span></a>
+				<div class="flex">
+					<div class="ft_nav_section">
+						<a href="about" class="circle circle_g"><span>団体概要</span></a>
+						<ul class="sub_list">
+							<li><a href="about#philosophy">活動理念</a></li>
+							<li><a href="about#history">歴史・沿革</a></li>
+							<li><a href="about#organization">組織・役員</a></li>
+							<li><a href="about#bylaws">定款・規約</a></li>
+						</ul>
+					</div>
+					<div class="ft_nav_section">
+						<a href="#project" class="circle circle_o"><span>活動紹介</span></a>
+						<ul class="sub_list">
+							<li><a href="zabun_award">ざぶん賞</a></li>
+							<li><a href="zabun_sdgs">ざぶんSDGs大賞</a></li>
+							<li><a href="mural">壁画プロジェクト</a></li>
+							<li><a href="environmental">環境教育事業</a></li>
+							<li><a href="medical">医療機関連携</a></li>
+						</ul>
+					</div>
+					<div class="ft_nav_section">
+						<a href="results" class="circle circle_p"><span>実績・成果</span></a>
+						<ul class="sub_list">
+							<li><a href="results#honors">受賞歴・表彰</a></li>
+							<li><a href="results#report">活動レポート</a></li>
+							<li><a href="results#media">メディア掲載</a></li>
+							<li><a href="results#annual-report">年次活動報告</a></li>
+						</ul>
+					</div>
+					<div class="ft_nav_section">
+						<a href="support" class="circle circle_b"><span>協賛・支援</span></a>
+						<a href="news" class="circle circle_g"><span>ニュース</span></a>
+						<a href="privacy" class="circle circle_o"><span>プライバシーポリシー</span></a>
+						<a href="contact" class="circle circle_p"><span>お問い合わせ</span></a>
+					</div>
+				</div>
+			</div><!--- ft_nav --->
+			<div class="sp_footer">
+				<a href="privacy"><i class="icon-play3"></i>プライバシーポリシー</a>
+			</div>
+			<div id="copy">
+				<p>&copy; 2025 Zabun Project. All rights reserved.</p>
+			</div>
+		</section>
+	</footer>
+
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+	<script>
 		// AOS
 		$(function () {
 			AOS.init();
 		});
-		</script>
-		<script src="js/common.js"></script>
-	</body>
+	</script>
+	<script src="js/common.js"></script>
+</body>
+
 </html>
