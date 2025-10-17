@@ -48,7 +48,7 @@ p {
 }
 
 .width-set {
-	width: calc(100% - (1em * 2)); 
+	width: calc(100% - (1em * 2));
 	margin: 0 auto !important;
 }
 
@@ -140,25 +140,43 @@ p {
 }
 
 @media (min-width:1200px) {
-	.grid-column-4 {
+	.grid-column-1-3-4 {
 		grid-template-columns: repeat(4, 1fr);
 		gap: 2em;
 	}
 }
 
 :root {
-  --page-color: var(--main-color);
+	--page-color: var(--main-color);
 }
 
 /* #region major-heading */
 .major-heading {
+	padding-bottom: 3rem;
+
 	.major-heading__logo {
 		width: 95%;
-		max-width: 400px;
+		max-width: 350px;
 		height: auto;
-		margin: 1em auto 3em;
+		margin: 1em auto;
 	}
 }
+
+@media (min-width:768px) {
+	.major-heading .big-head {
+		display: block;
+		margin-bottom: 5rem;
+	}
+
+	.major-heading__logo {
+		display: inline;
+		width: 320px;
+		text-align: left;
+		align-items: left;
+		margin: 0 auto 0 0;
+	}
+}
+
 
 /* #endregion  major-heading */
 
@@ -168,73 +186,91 @@ p {
 }
 
 .zabun-read {
-  position: relative;
-  isolation: isolate;
-  background-color: var(--page-color);
-  border-top: 2px solid var(--page-color);
-  padding: 2em 0;
+	position: relative;
+	isolation: isolate;
+	background-color: var(--page-color);
+	border-top: 2px solid var(--page-color);
+	padding: 2em 0;
 
-  h3,
+	h3,
 	p {
 		color: white;
+		font-weight: bold;
 	}
 
 	h3 {
+		margin: 1em;
 		font-size: 1.6em;
 	}
 
 	p {
+		line-height: 2.5;
 		margin: 1em;
-		font-weight: bold;
 	}
 }
-.zabun-read > * { position: relative; z-index: 1; } /* 前面に出す */
 
-.zabun-read::before{
-  content: "";
-  position: absolute;
-  inset-inline: 0;           /* left:0; right:0; と同じ */
-  inset-block-start: 0;      /* top:0; と同じ */
-  width: 100%;
-  height: auto;              /* ← 高さは比率から自動算出 */
-  aspect-ratio: 1920 / 374;  /* ← ここがキモ！ */
+.zabun-read>* {
+	position: relative;
+	z-index: 1;
+}
 
-  /* 画像は帯全体にフィットさせる（同じ比率なので歪みません） */
-  background: url("../img/zabun/nami.png") center top / 100% 100% no-repeat;
+/* 前面に出す */
 
-  /* 擬似要素の“自分の高さ分”だけ上に押し上げる＝親の上辺にぴったり重なる */
-  transform: translateY(-100%);
+.zabun-read::before {
+	content: "";
+	position: absolute;
+	inset-inline: 0;
+	/* left:0; right:0; と同じ */
+	inset-block-start: 0;
+	/* top:0; と同じ */
+	width: 100%;
+	height: auto;
+	/* ← 高さは比率から自動算出 */
+	aspect-ratio: 1920 / 374;
+	/* ← ここがキモ！ */
 
-  pointer-events: none;
-  z-index: 0;                /* 背面（子要素は z-index:1 にしてある） */
+	/* 画像は帯全体にフィットさせる（同じ比率なので歪みません） */
+	background: url("../img/zabun/nami.png") center top / 100% 100% no-repeat;
+
+	/* 擬似要素の“自分の高さ分”だけ上に押し上げる＝親の上辺にぴったり重なる */
+	transform: translateY(-100%);
+
+	pointer-events: none;
+	z-index: 0;
+	/* 背面（子要素は z-index:1 にしてある） */
 }
 
 /* ラッパーを箱の中に収める */
-.zabun-read__swiper { overflow: hidden; }
+.zabun-read__swiper {
+	overflow: hidden;
+}
 
 /* Swiper本体 */
 .zabun-read__swiper .swiper {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-  contain: paint; /* 影やtransformのはみ出し保険 */
+	width: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+	contain: paint;
+	/* 影やtransformのはみ出し保険 */
 }
 
 /* スライドは“縮められる”ように */
 .zabun-read__swiper .swiper-slide {
-  min-width: 0;
-  overflow: hidden;
+	min-width: 0;
+	overflow: hidden;
 }
 
 /* スライド直下の要素も縮めOK */
-.zabun-read__swiper .swiper-slide > * { min-width: 0; }
+.zabun-read__swiper .swiper-slide>* {
+	min-width: 0;
+}
 
 /* 画像は必ず収まる */
 .zabun-read__swiper .swiper-slide img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
 
 
@@ -260,11 +296,32 @@ p {
 }
 
 @media (min-width:768px) {
+	.zabun-read {
+		margin-top: 80px;
+	}
+
 	.zabun-read__propose {
 		flex-direction: row;
 		justify-content: space-around;
-		max-width: 700px;
 		text-align: left;
+		gap: 3em;
+
+		span,
+		p {
+			margin: 0;
+		}
+	}
+
+	.zabun-read__swiper {
+		margin: 3em 0;
+	}
+}
+
+@media (min-width:1200px) {
+	.zabun-read__propose {
+		gap: 6em;
+		padding: 2em 3em;
+
 	}
 }
 
@@ -284,6 +341,7 @@ p {
 @media (min-width:768px) {
 	.bunner img {
 		width: 450px;
+		margin: 5em 0;
 	}
 }
 
@@ -296,68 +354,120 @@ p {
 /* #endregion bunner */
 
 /* #region award */
+
 .award {
+	height: auto;
+}
+
+.award h3 {
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 160px;
+}
+
+.award__title {
+	position: relative;
+	width: 300px;
+	height: 150px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.award__title::before {
+	content: "Award";
+	position: absolute;
+	left: 0;
+	top: 10%;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	color: var(--page-color);
+	font-size: 7em;
+	font-weight: bold;
+	opacity: .3;
+}
+
+.award__body {
+	position: relative;
+	width: 90%;
+	border: 1px solid var(--page-color);
+	border-radius: 8px;
+	background-color: white;
+	margin: 0 auto;
+	padding: 1em;
+	transform: translateY(-40px);
+
+	.award__head {
+		background-color: var(--page-color);
+		color: white;
+		border-radius: 4px;
+		padding: 4px 8px;
+		text-align: center;
+	}
+
+	.award__winner {
+		text-align: center;
+		line-height: 1.5;
+		font-weight: bold;
+		padding: 10px 20px;
+	}
+}
+
+@media (min-width:768px) {
 	.award__title {
 		position: relative;
-		width: 300px;
-		height: 150px;
-		text-align: center;
-		margin: 0 auto;
+		width: 600px;
+		height: 300px;
 
 		h3 {
-			font-size: 1.5em;
+			font-size: 3em;
 			font-weight: bold;
-			line-height: 160px;
+			line-height: 250px;
 		}
 	}
 
 	.award__title::before {
-		content: "Award";
-		position: absolute;
-		left: 0;
-		top: 10%;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		color: var(--page-color);
-		font-size: 7em;
-		font-weight: bold;
-		opacity: .3;
+		top: 0;
+		font-size: 12em;
 	}
 
 	.award__body {
-		position: relative;
-		width: 90%;
-		border: 1px solid var(--page-color);
-		border-radius: 8px;
-		background-color: white;
-		margin: 0 auto;
-		padding: 1em;
-		transform: translateY(-40px);
-
-		.award__head {
-			background-color: var(--page-color);
-			color: white;
-			border-radius: 4px;
-			padding: 4px 8px;
-			text-align: center;
-		}
-
-		.award__winner {
-			text-align: center;
-			line-height: 1.5;
-			font-weight: bold;
-			padding: 10px 20px;
-		}
+		transform: translateY(-130px);
+		padding-bottom: .5em;
+		max-width: 700px;
 	}
 }
 
+@media (min-width:1200px) {
+	.award__title {
+		position: relative;
+		width: 900px;
+		height: 450px;
+
+		h3 {
+			font-size: 4em;
+			font-weight: bold;
+			line-height: 450px;
+		}
+	}
+
+	.award__title::before {
+		top: 40px;
+		font-size: 20em;
+	}
+
+	.award__body {
+		transform: translateY(-140px);
+		padding-bottom: .5em;
+		max-width: 1000px;
+	}
+}
 /* #endregion award */
 
 /* #region judges-mes */
 .judges-mes {
 	text-align: center;
-	background: color-mix(in srgb, var(--page-color) 10%, white 90%);
+	background: color-mix(in srgb, var(--page-color) 15%, white 85%);
 	margin: 3em 0;
 	padding: 2em 0;
 
@@ -416,9 +526,16 @@ p {
 }
 
 @media (min-width:768px) {
+	.judges-mes {
+		padding: 3em 0;
+	}
+
 	.judges-mes__inner {
-		grid-template-columns: repeat(2, 1fr);
+
+		display: flex;
+		justify-content: center;
 		gap: 3em;
+		text-align: center;
 	}
 }
 
@@ -451,10 +568,19 @@ p {
 
 @media (min-width:768px) {
 	.design-heading {
-		
+
 		p {
 			text-align: left;
+			line-height: 2.5;
 		}
+	}
+}
+
+@media (min-width:1200px) {
+	.design-heading::before {
+		font-size: 15em;
+		letter-spacing: -7px;
+		right: -10px;
 	}
 }
 
@@ -473,6 +599,21 @@ p {
 }
 
 /* #endregion row-card */
+
+/* #region split-layout */
+.split-layout {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2em;
+	margin-bottom: 3em;
+}
+
+@media (min-width:768px) {
+	.split-layout {
+		grid-template-columns: 87fr 64fr;
+		gap: 4em;
+	}
+}	
 
 /*-------------------------
 
@@ -574,12 +715,14 @@ p {
 	.zabun-award__history_inner {
 		grid-template-columns: repeat(3, 1fr);
 		margin: 2em auto;
+		gap: 1em;
 	}
 
 	.zabun-award__works_img {
 		width: 80%;
 	}
 }
+
 /*------------------------------------
 
    ざぶんSDGs大賞　zabun_sdgs
@@ -588,6 +731,10 @@ p {
 
 #page_sdgs {
 	--page-color: var(--green1);
+}
+
+.zabun-read::before {
+	background: url("../img/sdgs/nami.png") center top / 100% 100% no-repeat;
 }
 
 
